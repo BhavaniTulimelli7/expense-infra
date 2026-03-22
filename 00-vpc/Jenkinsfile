@@ -30,14 +30,17 @@ pipeline {
                 message "Should we continue?"
                 ok "Yes, we should."
             }
-            script{
-                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
-                 sh """
-                    cd 00-vpc
-                    terraform apply -auto-approve
-                """
+            steps{
+                script{
+                    withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                    sh """
+                        cd 00-vpc
+                        terraform apply -auto-approve
+                    """
+                    }
                 }
             }
+            
         }
     }
     post { 
