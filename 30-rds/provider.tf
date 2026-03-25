@@ -1,10 +1,9 @@
 terraform {
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "6.12.0"
-    }
+    aws = ">= 6.28.0"
+    random = ">= 3.1.0"
   }
+
 
   backend "s3" {
     bucket = "expense-dev-bhavani"
