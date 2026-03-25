@@ -23,7 +23,7 @@ variable "domain_name" {
 }
 
 variable "database_subnet_ids"{
-   default=["10.0.21.0/24","10.0.22.0/24"] 
+   default=["subnet-089370fb0213bb81c","subnet-0e500fad7c16340e3"] 
 }
 
 # variable "password" {
