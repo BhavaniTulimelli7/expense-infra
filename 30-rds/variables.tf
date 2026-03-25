@@ -22,6 +22,10 @@ variable "domain_name" {
     default = "daws82s.online"
 }
 
+variable "database_subnet_ids"{
+   default=["10.0.21.0/24","10.0.22.0/24"] 
+}
+
 # variable "password" {
 #     default = "ExpenseApp1"
 # }
