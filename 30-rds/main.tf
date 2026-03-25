@@ -75,7 +75,7 @@ resource "aws_route53_record" "www-dev" {
 }
 
 resource "aws_db_subnet_group" "db_subnet_group" {
-  name       = "expense-dev-db-subnet-group"
+  name       = "/expense/dev/db-subnet-group"
   subnet_ids = var.database_subnet_ids
 }
 
