@@ -21,3 +21,7 @@ variable "zone_id" {
 variable "domain_name" {
     default = "daws82s.online"
 }
+
+# variable "password" {
+#     default = "ExpenseApp1"
+# }
