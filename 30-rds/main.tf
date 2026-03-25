@@ -10,13 +10,14 @@ module "db" {
   db_name  = "transactions" # AWS will create this schema automatically
   username = "root"
   port     = "3306"
+  # password = "ExpenseApp1"
   manage_master_user_password = false
 
   vpc_security_group_ids = [local.mysql_sg_id]
 
   # DB subnet group
-  create_db_subnet_group = true
-  subnet_ids             = data.aws_ssm_parameter.database_subnet_ids
+  create_db_subnet_group = false
+  db_subnet_group_name = local.database_subnet_group_name
 
   # DB parameter group
   family = "mysql8.0"
@@ -72,14 +73,3 @@ resource "aws_route53_record" "www-dev" {
   records = [module.db.db_instance_address]
   allow_overwrite = true
 }
-
-# resource "aws_db_subnet_group" "this" {
-#   name       = "${var.project_name}-${var.environment}-db-subnet-group"
-#   subnet_ids = var.database_subnet_ids
-
-#   tags = {
-#     Name        = "${var.project_name}-${var.environment}-db-subnet-group"
-#     Environment = var.environment
-#     Project     = var.project_name
-#   }
-# }
