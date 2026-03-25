@@ -10,13 +10,13 @@ module "db" {
   db_name  = "transactions" # AWS will create this schema automatically
   username = "root"
   port     = "3306"
-  
+  password = "ExpenseApp1"
   manage_master_user_password = false
 
   vpc_security_group_ids = [local.mysql_sg_id]
 
   # DB subnet group
-  create_db_subnet_group = false
+  create_db_subnet_group = true
   db_subnet_group_name = local.db_subnet_group_name
 
   # DB parameter group
