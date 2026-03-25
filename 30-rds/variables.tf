@@ -15,9 +15,9 @@ variable "common_tags" {
 }
 
 variable "zone_id" {
-    default = "Z06482001IVMWCKDNIN81"
+    default = "Z021448929NMXW4P65UQE"
 }
 
 variable "domain_name" {
-    default = "krishiv.store"
+    default = "daws82s.online"
 }
