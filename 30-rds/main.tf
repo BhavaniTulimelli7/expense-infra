@@ -16,7 +16,7 @@ module "db" {
 
   # DB subnet group
   create_db_subnet_group = true
-  db_subnet_group_name = local.db_subnet_group_name
+  subnet_ids             = data.aws_ssm_parameter.database_subnet_ids
 
   # DB parameter group
   family = "mysql8.0"
@@ -72,3 +72,14 @@ resource "aws_route53_record" "www-dev" {
   records = [module.db.db_instance_address]
   allow_overwrite = true
 }
+
+# resource "aws_db_subnet_group" "this" {
+#   name       = "${var.project_name}-${var.environment}-db-subnet-group"
+#   subnet_ids = var.database_subnet_ids
+
+#   tags = {
+#     Name        = "${var.project_name}-${var.environment}-db-subnet-group"
+#     Environment = var.environment
+#     Project     = var.project_name
+#   }
+# }
