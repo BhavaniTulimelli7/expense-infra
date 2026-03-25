@@ -75,12 +75,12 @@ resource "aws_route53_record" "www-dev" {
 }
 
 resource "aws_db_subnet_group" "db_subnet_group" {
-  name       = "/expense/dev/db-subnet-group"
+  name       = "expense-dev-db-subnet-group"
   subnet_ids = var.database_subnet_ids
 }
 
 resource "aws_ssm_parameter" "db_subnet_group_name" {
-  name  = "/expense/dev/db_subnet_group_name"
+  name  = "expense-dev-db_subnet_group_name"
   type  = "String"
   value = aws_db_subnet_group.db_subnet_group.name
 }
